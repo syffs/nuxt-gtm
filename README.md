@@ -71,6 +71,15 @@ You can optionally set `pageTracking` option to `true` to track page views.
 
 This is disabled by default to prevent double events when using alongside with Google Analytics so take care before enabling this option.
 
+## Usage
+
+### Pushing events
+
+You can push events into the configured `layer`:
+```js
+this.$gtm.pushEvent({ event: 'myEvent', ...someAttributes })
+```
+
 
 ## License
 
