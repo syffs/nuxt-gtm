@@ -1,13 +1,13 @@
 # @nuxtjs/gtm
 
+<!--[![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![npm version][npm-version-src]][npm-version-href]
-[![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Circle CI][circle-ci-src]][circle-ci-href]
 [![Codecov][codecov-src]][codecov-href]
-[![Dependencies][david-dm-src]][david-dm-href]
+[![Dependencies][david-dm-src]][david-dm-href]-->
 [![Standard JS][standard-js-src]][standard-js-href]
 
-> Google Tag Manager for Nuxt.js
+> Google Tag Manager for Nuxt.js - inspired by Nuxt.js [Google Tag Manager](https://github.com/nuxt-community/modules/tree/master/packages/google-tag-manager) official module which seemed incomplete to me
 
 [📖 **Release Notes**](./CHANGELOG.md)
 
@@ -15,14 +15,14 @@
 This plugins automatically sends first page and route change events to GTM.
 
 **Note:** google tag manager is not enabled in dev mode.
-You can set environment variable `NODE_ENV` to `production` for testing in dev mode.
+You can set force it providing `enabled: true` option
 
 ## Setup
 - Add `@nuxtjs/google-tag-manager` dependency using yarn or npm to your project
 - Add `@nuxtjs/google-tag-manager` to `modules` section of `nuxt.config.js`
 ```js
   modules: [
-   ['@nuxtjs/google-tag-manager', { id: 'GTM-XXXXXXX' }],
+   ['@nuxtjs/gtm', { id: 'GTM-XXXXXXX' }],
   ]
 ```
 
@@ -54,7 +54,7 @@ id: () => {
   id: 'GTM-XXXXXXX',
   layer: 'dataLayer',
   pageTracking: false,
-  enabled: true,
+  enabled: ({ isDev, isClient }) => (!isDev && isClient), // or `false` when in dev/debug mode
   query: {
     // query params...
     gtm_auth:        '...',
@@ -79,10 +79,10 @@ This is disabled by default to prevent double events when using alongside with G
 Copyright (c) syffs
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/dt/@nuxtjs/gtm.svg?style=flat-square
+[npm-version-src]: https://img.shields.io/npm/v/@nuxtjs/gtm/latest.svg?style=flat-square
 [npm-version-href]: https://npmjs.com/package/@nuxtjs/gtm
 
-[npm-downloads-src]: https://img.shields.io/npm/v/@nuxtjs/gtm/latest.svg?style=flat-square
+[npm-downloads-src]: https://img.shields.io/npm/dt/@nuxtjs/gtm.svg?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/@nuxtjs/gtm
 
 [circle-ci-src]: https://img.shields.io/circleci/project/github/https://github.com/syffs/nuxt-gtm.svg?style=flat-square
