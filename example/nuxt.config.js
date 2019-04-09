@@ -9,8 +9,7 @@ module.exports = {
       options: {
         id: 'GTM-XXXXXXX',
         layer: 'dataLayer',
-        pageTracking: true,
-        enabled: true
+        pageTracking: true
       } }
   ]
 }
